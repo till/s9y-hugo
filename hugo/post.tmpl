@@ -1,0 +1,17 @@
+---
+aliases:
+- .Permalink
+title: "{{ .Title }}"
+publishDate: {{ .DatePublished }}
+lastmod: {{ .DateModified }}
+tags:
+{{- range .Tags }}
+- {{.Tag -}}
+{{- end }}
+---
+
+{{ .Body }}
+{{ if .ExFlag }}
+<!--more-->
+{{ .Extended }}
+{{ end }}

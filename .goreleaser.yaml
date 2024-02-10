@@ -1,0 +1,25 @@
+version: 1
+before:
+  hooks:
+  - go generate ./...
+  - go mod tidy
+
+builds:
+- main: ./cmd/main.go
+  env:
+  - CGO_ENABLED=0
+  goarch:
+  - amd64
+  goos:
+  - freebsd
+  - darwin
+
+archives:
+- format: binary
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - "^docs:"
+    - "^test:"
